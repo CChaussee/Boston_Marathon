@@ -43,6 +43,7 @@ Use fake datasets on each portion to start building out to minimize the waiting 
 Javascript Library HiCharts https://www.highcharts.com/
 Strava API
 
+
 # Ideas
 * Drop down menu selecting a specific path
 * Changes a stacked chart for each day of the week for how many people (men vs women) running during each day of the week

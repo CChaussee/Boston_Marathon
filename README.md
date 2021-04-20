@@ -51,3 +51,6 @@ Strava API
   * Use paths or zip codes and change the bubble sizes depending on miles that path contains
   * Use the js file to help understand how to structure the MongoDB transform
 * Mapbox map out route
+
+### API Sources
+* https://developers.strava.com/playground/#/

@@ -1,6 +1,8 @@
+
 const myMap = L.map("map", {
   center: [42.29622, -71.30576],
-  zoom: 12
+  zoom: 12,
+  scrollWheelZoom: false
 });
 
 const lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {

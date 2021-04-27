@@ -1,0 +1,58 @@
+Watchpoints
+
+
+  Static file using D3 json - 
+  load into doc into database serve it up same as other files, available in end point app
+
+
+  Starting Line (42.22993, -71.51810)
+
+  Hopkinton 
+
+	E Main St (42.232314, -71.514391)
+	E Main St (42.236735, -71.503936)
+
+  Ashland 
+
+	Ashland Woods (42.24328, -71.48487)
+	Ashland Middle School (42.25191, -71.47471)
+	Ashland house (42.26109, -71.46367)
+	Ashland High School (42.26343, -71.44579)
+
+  Framingham 
+	
+	Fountain St (42.27277, -71.44528)
+	Cedar Swamp (42.273396, -71.423379)
+	Dennison Playground (42.27749, -71.40686)
+
+  Natick
+
+	Beaverton Brook (42.28256, -71.37634)
+	Fisk Pond (42.28362, -71.36807)
+	Tony Anniballi Memorial Park (42.285852, -71.3598)
+
+  Wellesley Hills
+
+	Hunnewell Tennis Courts (42.30511, -71.28259)
+	Wellesley Free Library (42.31499, -7127097)
+	Warren Park (42.32111, -71.26260)
+	Woodland Gold Club (42.33587, -71.24530)
+
+  Newton
+
+	Newton City Hall (42.33758, -71.20893)
+	Bullough's Pond (42.33847, -71.20784)
+	
+  Chesnut Hill
+
+	Commonwealth Ave (42.33737, -71.17430)
+	Boston College (42.33763, -71.17149)
+	Reilly Memorial Recreation Center (42.33734, -71.15271)
+
+  Brookline 
+
+	Jean B. Waldstein Playground (42.33688, -71.14339)
+	Heartbreak Hill (42.34954, -71.08629)
+	Charlesgate Park (42.34890, -71.09230)
+
+  Finish Line (42.35132, -71.07777)

@@ -14,10 +14,12 @@ marathondata = [runner for runner in marathon_collection.find()]
    
 @app.route('/', methods=['GET'])
 def home():
-    boston = list(marathondata)
-    return current_app.response_class(dumps(boston), mimetype="application/json")
+    return render_template("index.html")
 
-    
+@app.route('/api', methods=['GET'])
+def home():
+    boston = list(marathondata)
+    return current_app.response_class(dumps(boston), mimetype="application/json")    
 
 if __name__ == "__main__":
     app.run(debug=True)

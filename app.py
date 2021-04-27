@@ -17,7 +17,7 @@ def home():
     return render_template("index.html")
 
 @app.route('/api', methods=['GET'])
-def home():
+def api():
     boston = list(marathondata)
     return current_app.response_class(dumps(boston), mimetype="application/json")    
 

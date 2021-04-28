@@ -50,5 +50,37 @@ def gender():
     return jsonify(results)
 
 
+@app.route('/api/country', methods=['GET'])
+def country():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Country": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "country": "$Country"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "Year": pymongo.ASCENDING
+      }
+   },
+]
+
+
+    results = marathon_collection.aggregate(pipeline)
+    results = [rex for rex in results]
+    return jsonify(results)
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

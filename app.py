@@ -9,7 +9,7 @@ conn = 'mongodb://localhost:27017'
 client = MongoClient(conn)
 db = client.marathon_db
 marathon_collection = db.marathon
-marathondata = [runner for runner in marathon_collection.find()]
+marathondata = [runner for runner in marathon_collection.find({}, {'_id': False})]
 
    
 @app.route('/', methods=['GET'])
@@ -19,7 +19,30 @@ def home():
 @app.route('/api', methods=['GET'])
 def api():
     boston = list(marathondata)
-    return current_app.response_class(dumps(boston), mimetype="application/json")    
+    return jsonify(boston)        
 
+@app.route('/api/country', methods=['GET'])
+def country():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Country" : 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year" : "$Year", "country": "$Country"},
+        "count" : {"$sum" : 1}
+    }
+    },
+    {
+        "$sort": {
+            "Year": pymongo.ASCENDING
+        }  
+    }
+    ]
+results = marathon_collection.aggregate(pipeline)
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,7 +1,8 @@
-from flask import Flask, render_template, redirect, jsonify, current_app
+from flask import Flask, render_template, redirect, jsonify, current_app, request
 import pymongo
 from pymongo import MongoClient
 from bson.json_util import dumps
+from collections import defaultdict
 # Create an instance of Flask
 app = Flask(__name__)
 
@@ -28,26 +29,40 @@ def gender():
     "$project": {
         "_id": 0,
         "Gender": 1,
-        "Year": 1
-    }
+        "Year": 1}
     },
     {
     "$group": {
         "_id" : {"year": "$Year", "gender": "$Gender"},
-        "count" : {"$sum" : 1}
-    }
+        "count" : {"$sum" : 1}}
     },
    {
       "$sort": {
-         "Year": pymongo.ASCENDING
-      }
-   },
-]
-
-
+         "Year": pymongo.ASCENDING}
+   }]
     results = marathon_collection.aggregate(pipeline)
     results = [rex for rex in results]
     return jsonify(results)
+
+@app.route('/api/scatter', methods=['GET'])
+def scatter():
+    series = request.args.get('series')
+    print(series)
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Age": 1,
+        "Gender": 1,
+        "Country": 1,
+        "Year": 1,
+        "Offical Time": 1}
+    }]
+    results = marathon_collection.aggregate(pipeline)
+    chartdata = defaultdict(list)
+    for result in results:
+        chartdata[result['Gender']].append((result['Age'], result['Offical Time']))
+    return jsonify(chartdata)
 
 
 if __name__ == "__main__":

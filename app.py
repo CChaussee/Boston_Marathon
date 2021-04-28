@@ -190,5 +190,35 @@ def sandy():
     return jsonify(results)
 
 
+@app.route('/api/latlong', methods=['GET'])
+def latlong():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Latitude": 1,
+        "Longitude": 1,
+        "State": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "latitude": "$Latitude", "longitude": "$Longitude", "state": "$State"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "State": pymongo.ASCENDING
+      }
+   },
+]
+
+
+    results = marathon_collection.aggregate(pipeline)
+    results = [rex for rex in results]
+    return jsonify(results)
+
 if __name__ == "__main__":
     app.run(debug=True)

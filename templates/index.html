@@ -21,10 +21,10 @@
    crossorigin=""></script>
 
    <!-- script for highchart -->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/highcharts-more.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
   </head>
   <body>
@@ -45,7 +45,25 @@
       </div>
     </div>
 
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
+    <!-- section for highchart -->
+    <div class="row" id="section2">
+      <div class="highchart">
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+                Scatter charts are often used to visualize the relationships
+                between data in two dimensions. This chart is visualizing
+                height and weight by gender, showing a clear trend where men
+                are on average taller and heavier than women.
+            </p>
+        </figure>
+      </div>
+    </div>
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div id="plot-year"></div>
 
     <!-- Icons -->

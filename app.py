@@ -47,7 +47,6 @@ def gender():
 @app.route('/api/scatter', methods=['GET'])
 def scatter():
     series = request.args.get('series')
-    print(series)
     pipeline = [
     {
     "$project": {
@@ -61,7 +60,17 @@ def scatter():
     results = marathon_collection.aggregate(pipeline)
     chartdata = defaultdict(list)
     for result in results:
-        chartdata[result['Gender']].append((result['Age'], result['Offical Time']))
+        hms = result["Offical Time"].split(":")
+        minutes = float(hms[0]) * 60
+        try:
+            minutes += float(hms[1])
+        except:
+            pass
+        try:
+            minutes += float(hms[2]) / 60
+        except:
+            pass
+        chartdata[result[series]].append((result['Age'], minutes))
     return jsonify(chartdata)
 
 

@@ -79,7 +79,115 @@ def country():
     return jsonify(results)
 
 
+@app.route('/api/pace', methods=['GET'])
+def pace():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Pace": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "pace": "$Pace"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "Year": pymongo.ASCENDING
+      }
+   },
+]
 
+
+    results = marathon_collection.aggregate(pipeline)
+    results = [rex for rex in results]
+    return jsonify(results)
+
+@app.route('/api/half', methods=['GET'])
+def half():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Half Marathon Split": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "half marathon split": "$Half Marathon Split"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "Year": pymongo.ASCENDING
+      }
+   },
+]
+
+
+    results = marathon_collection.aggregate(pipeline)
+    results = [rex for rex in results]
+    return jsonify(results)
+
+
+@app.route('/api/final', methods=['GET'])
+def final():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Offical Time": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "offical time": "$Offical Time"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "Year": pymongo.ASCENDING
+      }
+   },
+]
+
+
+@app.route('/api/sandy', methods=['GET'])
+def sandy():
+    pipeline = [
+    {
+    "$project": {
+        "_id": 0,
+        "Gender": 2,
+        "Offical Time": 1,
+        "Year": 1
+    }
+    },
+    {
+    "$group": {
+        "_id" : {"year": "$Year", "offical time": "$Offical Time", "gender": "$Gender"},
+        "count" : {"$sum" : 1}
+    }
+    },
+   {
+      "$sort": {
+         "Year": pymongo.ASCENDING
+      }
+   },
+]
+
+
+    results = marathon_collection.aggregate(pipeline)
+    results = [rex for rex in results]
+    return jsonify(results)
 
 
 if __name__ == "__main__":

@@ -184,35 +184,6 @@ def final():
 ]
 
 
-@app.route('/api/sandy', methods=['GET'])
-def sandy():
-    pipeline = [
-    {
-    "$project": {
-        "_id": 0,
-        "Gender": 2,
-        "Offical Time": 1,
-        "Year": 1
-    }
-    },
-    {
-    "$group": {
-        "_id" : {"year": "$Year", "offical time": "$Offical Time", "gender": "$Gender"},
-        "count" : {"$sum" : 1}
-    }
-    },
-   {
-      "$sort": {
-         "Year": pymongo.ASCENDING
-      }
-   },
-]
-
-
-    results = marathon_collection.aggregate(pipeline)
-    results = [rex for rex in results]
-    return jsonify(results)
-
 
 @app.route('/api/latlong', methods=['GET'])
 def latlong():

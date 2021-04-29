@@ -89,7 +89,9 @@ const watchIcons = L.ExtraMarkers.icon({
   shape: "star"
 });
 
-// Loop through the cities array and create one marker for each city, bind a popup containing its name and population add it to the map
+// Loop through the cities array and create one marker for each city, bind a
+// popup containing its name and population add it to the map
+
 for (let i = 0; i < watchPoints.length; i++) {
   const point = watchPoints[i];
   L.marker(point.location, {icon: watchIcons})
@@ -98,12 +100,13 @@ for (let i = 0; i < watchPoints.length; i++) {
 };
 
 //////////////////////////////////////////////////////////////////////
+
 // d3.json('/api').then(data =>
 //   console.log(data)
 // )
 let runners
 fetch('/api/scatter?series=Gender').then(response => response.json()).then(data => {
-console.log(data.F)
+
 Highcharts.chart('container', {
     chart: {
         type: 'scatter',
@@ -174,3 +177,5 @@ Highcharts.chart('container', {
         data: data.M
     }]
 });});
+
+/////////////////////////////////////////////////////////////////////////////

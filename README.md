@@ -41,7 +41,7 @@ Use fake datasets on each portion to start building out to minimize the waiting 
 * If building a dashboard of multiple visualizatio, have a least three different visualizations that can be plots, charts, graphs or maps. With still having to work in some interactivity.
 
 Javascript Library HiCharts https://www.highcharts.com/
-Strava API
+
 
 
 # Ideas
@@ -53,4 +53,7 @@ Strava API
 * Mapbox map out route
 
 ### API Sources
-* https://developers.strava.com/playground/#/
+
+# How to Intall Data into mongoDB
+1.	From Kaggle.com download dataset (https://www.kaggle.com/rojour/boston-results) It is 3 csv files.
+2.	Import necessary tools

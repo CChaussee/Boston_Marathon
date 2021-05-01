@@ -122,10 +122,7 @@ function init(year){
               else if (element.Year == year && element.Gender == "F") {
                   runnerf.push(time);
               }
-
           }
-
-
       });
       console.log(runnerf);
       console.log(runnerm);
@@ -135,7 +132,6 @@ function init(year){
           let mins = parseInt(time_segments[1])
           let time = parseFloat(((hours * 60 + mins)/60).toFixed(2));
           return time
-
       }
 
       Highcharts.chart('container', {

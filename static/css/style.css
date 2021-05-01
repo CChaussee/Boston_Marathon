@@ -53,7 +53,13 @@ body {
     background: #f1f7ff;
 }
 
+#section2 {
+  border-style: groove;
+}
 
+#section3 {
+  border-style: groove;
+}
 
 
 
@@ -89,8 +95,11 @@ body {
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
+<<<<<<< HEAD
 
 .jumbotron {
   background-color: ;
 }
 
+=======
+>>>>>>> main

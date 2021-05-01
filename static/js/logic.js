@@ -320,3 +320,4 @@ fetch('/api/scatter?series=Country').then(response => response.json()).then(data
     ]
 
   });});
+/////////////////////////////////////////////////////////////////////////////

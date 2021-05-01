@@ -82,6 +82,7 @@ Our data lead us to create visualizations around and about the Boston Marathon. 
 Since the Boston Marathon is the oldest marathon run in the US and it is the only marathon that most of the participants have to qualify to participate.
 
 We have assembled a visualization that will provide the user the ability to learn information about the route of the Marathon and the specific location for the best views of the race itself. The route is historic in it's origin and development over the years. The course starts in town of Hopkinton on Main Street. Then travels along the Route 135 where the course then moves through the towns of Ashland, Framinham, Natick and Wellesley. Once the course reaches Wellesley, the path then diverges onto Route 16. 
+https://gist.github.com/jwass/11119254#file-boston_marathon-geojson
 
 ![Boston Marathon](\images\Viewpointsmap.jpg)
 

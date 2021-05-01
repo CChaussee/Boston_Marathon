@@ -100,15 +100,13 @@ for (let i = 0; i < watchPoints.length; i++) {
 };
 
 //////////////////////////////////////////////////////////////////////
+
+
 d3.selectAll("button").on("click", function() {
   d3.select("#container").html = "";
   init(d3.select(this).attr("id"))
 
-
-
-
 });
-
 
 function init(year){
   d3.json('/api').then((data) => {
@@ -119,16 +117,15 @@ function init(year){
           if (element["Offical Time"]){
               var time = [time_to_min(element["Offical Time"]), element.Age];
               if (element.Year == year && element.Gender == "M") {
-                 runnerm.push(time);   
+                 runnerm.push(time);
               }
-              else if (element.Year == year && element.Gender == "F") {            
-                  runnerf.push(time);   
+              else if (element.Year == year && element.Gender == "F") {
+                  runnerf.push(time);
               }
-  
+
           }
-  
-          
-  
+
+
       });
       console.log(runnerf);
       console.log(runnerm);
@@ -138,11 +135,9 @@ function init(year){
           let mins = parseInt(time_segments[1])
           let time = parseFloat(((hours * 60 + mins)/60).toFixed(2));
           return time
-  
-  
-  
+
       }
-  
+
       Highcharts.chart('container', {
           chart: {
               type: 'scatter',
@@ -206,26 +201,126 @@ function init(year){
               name: 'Female',
               color: 'rgba(223, 83, 83, .5)',
               data: runnerf
-      
+
           }, {
               name: 'Male',
               color: 'rgba(119, 152, 191, .5)',
               data: runnerm
           }]
       });
-      
-          
+
+
   })
 
 
 }
 init("2015")
 
-
-
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////
+
+// highchart 2 graph for country on Time vs Age
+fetch('/api/scatter?series=Country').then(response => response.json()).then(data => {
+
+
+  Highcharts.chart('container2', {
+      chart: {
+          type: 'scatter',
+          zoomType: 'xy'
+      },
+      title: {
+          text: 'Race Time by Age by Countries'
+      },
+      subtitle: {
+          text: 'Source: Kaggle Boston Marathon'
+      },
+      xAxis: {
+          title: {
+              enabled: true,
+              text: 'Age (years old)'
+          },
+          startOnTick: true,
+          endOnTick: true,
+          showLastLabel: true
+      },
+      yAxis: {
+          title: {
+              text: 'Official Race Finish Time (HH:MM:SS)'
+          }
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'left',
+          verticalAlign: 'top',
+          x: 100,
+          y: 70,
+          floating: true,
+          backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
+          borderWidth: 1
+      },
+      plotOptions: {
+          scatter: {
+              marker: {
+                  radius: 5,
+                  states: {
+                      hover: {
+                          enabled: true,
+                          lineColor: 'rgb(100,100,100)'
+                      }
+                  }
+              },
+              states: {
+                  hover: {
+                      marker: {
+                          enabled: false
+                      }
+                  }
+              },
+              tooltip: {
+                  headerFormat: '<b>{series.name}</b><br>',
+                  pointFormat: '{point.x} yrs old, {point.y} minutes'
+              }
+          }
+      },
+      series: [{
+          name: 'ETH',
+          data: data.ETH
+      },
+      {
+          name: 'KEN',
+          data: data.KEN
+      },
+      {
+          name: 'BRA',
+          data: data.BRA
+      },
+      {
+          name: 'ITA',
+          data: data.ITA
+      },
+      {
+          name: 'RUS',
+          data: data.RUS
+      },
+      {
+          name: 'ZIM',
+          data: data.ZIM
+      },
+      {
+          name: 'ESP',
+          data: data.ESP
+      },
+      {
+          name: 'BRN',
+          data: data.BRN
+      },
+      {
+          name: 'VEN',
+          data: data.VEN
+      },
+      {
+          name: 'MEX',
+          data: data.MEX
+      }
+    ]
+
+  });});

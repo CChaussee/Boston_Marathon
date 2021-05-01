@@ -91,4 +91,3 @@ Our second visualization using HighCharts is a scatter chart to visualize the re
 
 
 Our final visual shows the participants by gender and year. This visualization would be helpful to estimate how many particpants can be expected in each gender. 
-

@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, jsonify, current_app, request
 import pymongo
 from pymongo import MongoClient
-from bson.json_util import dumps
 from collections import defaultdict
 # Create an instance of Flask
 app = Flask(__name__)

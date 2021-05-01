@@ -1,20 +1,20 @@
 # Meadows Unlimited
 ## Boston Marathon Visualization Project
 
+
 ## Team Members
 * Chelsea Chaussee
 * Sandy Goodell
 * Chia Sun
-
-![Boston Marathon](\images\40943-moment-superJumbo-v2.png)
-
-
+pytho
 ## Our Project Utilizes
 
 * Python Flask - powered API
 * HTML/CSS
 * Javascript
 * MongoDB
+
+![website](images/website_header.jpg)
 
 ## Our Data
 
@@ -52,7 +52,7 @@ for index, row in merged_df.iterrows():
     data.append(post)
 
 ```
-![MongoDB](\images\mongodb.jpg)
+![MongoDB](images/mongodb.jpg)
 
 # Instructions:
 ## How to Intall Data into mongoDB
@@ -80,15 +80,29 @@ for index, row in merged_df.iterrows():
 Our data lead us to create visualizations around and about the Boston Marathon. Specifically, the years of 2015, 2016, and 2017. 
 
 Since the Boston Marathon is the oldest marathon run in the US and it is the only marathon that most of the participants have to qualify to participate.
+<br />  
+<br />  
 
+
+### Visualization 1
 We have assembled a visualization that will provide the user the ability to learn information about the route of the Marathon and the specific location for the best views of the race itself. The route is historic in it's origin and development over the years. The course starts in town of Hopkinton on Main Street. Then travels along the Route 135 where the course then moves through the towns of Ashland, Framinham, Natick and Wellesley. Once the course reaches Wellesley, the path then diverges onto Route 16. 
 https://gist.github.com/jwass/11119254#file-boston_marathon-geojson
 
-![Boston Marathon](\images\Viewpointsmap.jpg)
+![Boston Marathon map](images/Viewpointsmap.jpg)
+<br />  
+<br />  
 
-Our second visualization using HighCharts is a scatter chart to visualize the relation between male and female finishers age and finish times. This will help the user determine timing of when larger groups of runners will pass by the view point.
+### Visualization 2
+This scatter plot shows (use the toggle buttons to switch through 2015, 2016 and 2017) the runners who finished the Boston Marathon by official finishing time.This chart is visualizing age and finish time by gender, showing there is not a trend of men slowing down differently as they age than women.
 
-![Boston Marathon](\images\scatterplot.jpg)
+![scatterplot](/images/scatterplot.jpg)
+
+<br />  
+<br />  
+
+### Visualization 3
+
+Our last scatter plot shows the various sampled countries that individuals registered to run under in the years 2015, 2016 and 2017 races. This plot shows the runners time in total minutes versus their age. One of the interesting things that you can see from this graph is the marathon is highly popular no matter the age range. The oldest age of a person who ran this marathon in this time frame was: 2015 - 82 yrs old, 2016 -83 yrs old, and 2017 - 84 yrs old.
 
 
-Our final visual shows the participants by gender and year. This visualization would be helpful to estimate how many particpants can be expected in each gender. 
+![scatterplot](/images/scatterplot2.jpg)

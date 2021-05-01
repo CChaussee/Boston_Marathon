@@ -86,6 +86,7 @@ Since the Boston Marathon is the oldest marathon run in the US and it is the onl
 
 ### Visualization 1
 We have assembled a visualization that will provide the user the ability to learn information about the route of the Marathon and the specific location for the best views of the race itself. The route is historic in it's origin and development over the years. The course starts in town of Hopkinton on Main Street. Then travels along the Route 135 where the course then moves through the towns of Ashland, Framinham, Natick and Wellesley. Once the course reaches Wellesley, the path then diverges onto Route 16. 
+https://gist.github.com/jwass/11119254#file-boston_marathon-geojson
 
 ![Boston Marathon map](images/Viewpointsmap.jpg)
 <br />  
@@ -102,5 +103,6 @@ This scatter plot shows (use the toggle buttons to switch through 2015, 2016 and
 ### Visualization 3
 
 Our last scatter plot shows the various sampled countries that individuals registered to run under in the years 2015, 2016 and 2017 races. This plot shows the runners time in total minutes versus their age. One of the interesting things that you can see from this graph is the marathon is highly popular no matter the age range. The oldest age of a person who ran this marathon in this time frame was: 2015 - 82 yrs old, 2016 -83 yrs old, and 2017 - 84 yrs old.
+
 
 ![scatterplot](/images/scatterplot2.jpg)
